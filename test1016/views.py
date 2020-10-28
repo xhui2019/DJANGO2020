@@ -132,6 +132,6 @@ def get_time(request):
     t = get_template('mytemplate.html')
     html = t.render({'timenow':time})
     return HttpResponse(html)
-
+##这行用于gitee commit测试
 
 
