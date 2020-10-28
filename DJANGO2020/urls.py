@@ -46,4 +46,8 @@ urlpatterns = [
     path('test_h/', views.useTemplate),
     path('test_i/', views.useModels),
     path('test_j/', views.use_paginator),
+    path('test_k/',views.useView.as_view()),
+    path('test_l/', views.UseListView.as_view()),
+    path('test_m/<int:pk>', views.UseDetailView.as_view()),
+    path('test_n',views.get_time),
 ]

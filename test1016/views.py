@@ -96,4 +96,42 @@ def use_paginator(request):
     if page.has_next():
         str += '''  <a href='/test_j/?page=%s'>下一页</a>''' % page.next_page_number()
     return HttpResponse(str)
+from django.views import View
+class useView(View):
+    new="使用基于Views类的视图11：<br>"
+    form='''<form action='',method="post">
+                请输入数据：<input type='text' name='data'><br>
+                <input type='submit' value='提交'></form>'''
+    print("111111111111111")
+    def get(self,request):
+        s=self.new +'请求方法：GET'+self.form
+        print(2222222222222222222)
+        return HttpResponse(s)
+    def post(self,request):
+        s=self.new+'请求方法：POST'+'上传数据为：'+request.POST['data']+self.form
+        print(33333333333333333)
+        return HttpResponse(s)
+from datetime import datetime
+from django.views.generic.detail import DetailView
+from . import models
+from django.views.generic import ListView
+
+
+class UseDetailView(DetailView):
+    model = models.test1022DB
+    def get_context_data(self, **kwargs):
+        content = super().get_context_data(**kwargs)
+        content['now'] = datetime.now()
+        return content
+class UseListView(ListView):
+    model = models.test1022DB
+
+from django.template.loader import get_template
+def get_time(request):
+    time = datetime.today()
+    t = get_template('mytemplate.html')
+    html = t.render({'timenow':time})
+    return HttpResponse(html)
+
+
 

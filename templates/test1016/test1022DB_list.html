@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用内置List视图</title>
+</head>
+<body>
+    默认数据库1016testDB表全部数据
+    <table>
+        <tr>
+            <td>ID</td><td>NAME</td><td>AGE</td>
+            {%for i in object_list%}
+        </tr>
+        <tr>
+            <td>{{i.id}}</td><td>{{i.name}}</td><td>{{i.age}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+
+</body>
+</html>

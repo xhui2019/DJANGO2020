@@ -1,20 +1,28 @@
-from django.core.paginator import Paginator
-str={'a', 'b', 'c', 1, 2, 3, 4,5}
-page=Paginator(str,2)
-print(page.count)
-print(page.num_pages)
-print(page.page_range)
-print(page.get_page(1))
-print(page.page(2))
-p2=page.page(2)
-print(p2.object_list)
-print(p2.number)
-print(p2.paginator)
-print(page.page(3).paginator)
-print(p2.has_next())
-print(p2.has_previous())
-print(p2.has_other_pages())
-print(p2.next_page_number())
-print(p2.previous_page_number())
-print(p2.start_index())
-print(p2.end_index())
+import os
+from pathlib import Path
+path = os.path.join('aaa', 'bbbb')
+print(path)
+BASE_DIR1 = Path(__file__).resolve().parent.parent.parent.parent
+BASE_DIR2 = Path(__file__).resolve().parent
+BASE_DIR3 = Path(__file__).resolve()
+BASE_DIR4 = Path(__file__)
+print(BASE_DIR1, BASE_DIR2, BASE_DIR3, BASE_DIR4)
+List = [1, 2, 3, 4, 5, 6, ]
+print(List)
+a = [
+    1,
+    2,
+    3,
+]
+b = (1,
+     2,
+     3,
+     4,
+     )
+c = {'a': 1,
+     'c': [2,],
+     'd'
+     'ee': ['aa'],
+
+}
+print(a,b,c)
