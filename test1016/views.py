@@ -132,6 +132,30 @@ def get_time(request):
     t = get_template('mytemplate.html')
     html = t.render({'timenow':time})
     return HttpResponse(html)
-##这行用于gitee commit测试
+from django.shortcuts import render
+def use_template_b(request):
+    return render(request, 'template_b.html',{'data':'aaaaaaa'})
+def use_for(request):
+    ss = request.GET['s']
+    print(type(ss))
+    return render(request, 'template_for.html', {'ddd': ss})
+def use_extend(request):
+    return render(request,'sonTemplate.html')
+def getdata(request):
+    data=''
+    if 'data' in request.POST:
+        data = request.POST['data']
+        print(data)
+    return render(request,'formTemplate.html',{'data':data})
 
-
+from django import forms
+class DataForm(forms.Form):
+    data = forms.CharField(label='请输入数据')
+def use_form(request):
+    if request.method == 'POST':
+        form = DataForm(request.POST)
+        msg='已完成数据提交'
+    else:
+        form = DataForm()
+        msg = '初始表单'
+    return render(request,'dataTemplate.html',{'form':form,'msg':msg})

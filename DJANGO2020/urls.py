@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.urls import re_path
 from test1016 import views
+from django.conf.urls import url
 
 urlpatterns = [
     # re_path(r'^[a-zA-Z]+$', views.CharUrl),
@@ -50,4 +51,9 @@ urlpatterns = [
     path('test_l/', views.UseListView.as_view()),
     path('test_m/<int:pk>', views.UseDetailView.as_view()),
     path('test_n',views.get_time),
+    path('test_o',views.use_template_b),
+    path('test_p/',views.use_for),
+    path('test_q/', views.use_extend),
+    url('getdata/',views.getdata),
+    url('test_r',views.use_form),
 ]
