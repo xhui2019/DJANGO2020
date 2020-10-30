@@ -55,5 +55,6 @@ urlpatterns = [
     path('test_p/',views.use_for),
     path('test_q/', views.use_extend),
     url('getdata/',views.getdata),
-    url('test_r',views.use_form),
+    url('test_r/',views.use_form),
+    url('test_s/', views.xuan_ruan),
 ]

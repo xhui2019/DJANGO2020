@@ -150,7 +150,14 @@ def getdata(request):
 
 from django import forms
 class DataForm(forms.Form):
-    data = forms.CharField(label='请输入数据')
+    # data = forms.CharField(label='请输入数据123121a12313',label_suffix='sdadssadadasd',initial='aaaaa')
+    # data.label_suffix = ':'
+    # data.label = '请输入数据'
+    # data.help_text ='请输入8位数字'
+    # data.disabled = True
+    # data.widget = forms.Textarea
+    option = [('1','男'),('2','女')]
+    data = forms.ChoiceField(widget=forms.CheckboxSelectMultiple,choices=option)
 def use_form(request):
     if request.method == 'POST':
         form = DataForm(request.POST)
@@ -159,3 +166,5 @@ def use_form(request):
         form = DataForm()
         msg = '初始表单'
     return render(request,'dataTemplate.html',{'form':form,'msg':msg})
+def xuan_ruan(request):
+    return render(request,'xuanruan.html',{'form':DataForm()})
